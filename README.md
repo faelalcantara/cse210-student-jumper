@@ -21,8 +21,12 @@ click the "run" icon.
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- hunter              (source code for game)
++-- jumper              (source code for game)
   +-- game              (specific game classes)
+    +-- console.py        (game class with methods)
+    +-- director.py        (game class with methods)
+    +-- generator.py      (game class with methods)
+    +-- player.py        (game class with methods)
   +-- __init__.py       (python package file)
   +-- __main__.py       (entry point for program)
 +-- README.md           (general info)
@@ -34,4 +38,4 @@ root                    (project root folder)
 
 ## Authors
 ---
-* TODO: Add your names and emails here
+* Rafael Alcantara da Silva
