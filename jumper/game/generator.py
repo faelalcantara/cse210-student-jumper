@@ -1,4 +1,5 @@
 import random
+import string
 
 class Generator:
   """A code template for a generetor that will generate random words. The responsibility of this 
@@ -26,8 +27,20 @@ class Generator:
     self.current_word = self.words[word_index - 1]
     self.split_word()
 
+    # For testing:
+    # print(self.current_word)
+
   def split_word(self):
     # Separates each letter in saving in a list
     word = self.current_word
     for i in range(len(word)):
       self.word_letters.append(word[i])
+
+  def check_characters(self, character) -> bool:
+    alphabet_string = string.ascii_lowercase
+    alphabet_list = list(alphabet_string)
+
+    if character in alphabet_list:
+      return True
+    else:
+      return False
