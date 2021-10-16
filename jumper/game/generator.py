@@ -21,8 +21,27 @@ class Generator:
     self.current_word = ''
     self.word_letters = []
 
+  def read_external_file(self, filename):
+    word_list = []
+    with open(filename, "rt") as text_file:
+        for line in text_file:
+            clean_line = line.strip()
+            word_list.append(clean_line)
+
+    print(word_list)
+    return word_list
+
+  def import_words(self):
+    # try:
+      self.read_external_file("wordlist10000.txt")
+    # except (FileNotFoundError, PermissionError) as error:
+    #     print(type(error).__name__, error, sep=": ")
+
   def generate_word(self):
     # Generates the word random
+
+    self.import_words()
+
     word_index = random.randint(1, len(self.words))
     self.current_word = self.words[word_index - 1]
     self.split_word()
