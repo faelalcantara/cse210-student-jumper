@@ -1,4 +1,4 @@
-from generator import Generator
+from game.generator import Generator
 
 class Console:
   """A code template for a console that will display all information on screen. The responsibility of this 
@@ -84,10 +84,3 @@ class Console:
       self.show_illustration()
       print("\n---------- GAME OVER ----------")
 
-# You can run this file for testing
-# The only method you need to call is play()
-# All the other methods work inside this class
-# Uncomment the lines bellow for testing
-
-console = Console()
-console.play()
