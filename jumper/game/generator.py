@@ -1,5 +1,6 @@
 import random
 import string
+from game.importer import Importer
 
 class Generator:
   """A code template for a generetor that will generate random words. The responsibility of this 
@@ -20,6 +21,7 @@ class Generator:
     self.words = ['yellow', 'person', 'motorcycle']
     self.current_word = ''
     self.word_letters = []
+    self.importer = Importer()
 
   def read_external_file(self, filename):
     # Reads an external file and imports it as a list of words. This is very standard python code from CSE 111
@@ -44,7 +46,7 @@ class Generator:
 
   def generate_word(self):
     # By calling this method, the basic 3 word list gets replaced with thousands of words from the external file
-    self.import_words()
+    self.importer.import_words()
 
     # Generates the word random
     word_index = random.randint(1, len(self.words))
