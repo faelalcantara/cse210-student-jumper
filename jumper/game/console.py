@@ -1,6 +1,5 @@
 from game.generator import Generator
 
-
 class Console:
   """A code template for a console that will display all information on screen. The responsibility of this 
     class of objects is to privide all the game interactions, keep track of the values, the score 
@@ -30,9 +29,7 @@ class Console:
           "  /|\  ",
           "  / \  "]
       self.generator = Generator()
-      self.word_letters = self.generator.word_letters
-      self.hidden_letters = []
-
+      
   def ask(self):
       # Asks the user for a word and saves it in the variable.
       answer = input("Guess a letter [a-z]: ")
@@ -54,30 +51,31 @@ class Console:
 
       print("\n^^^^^^^")
 
-  def play(self):
+  def play(self, word_letters):
       """Starts the game initializing the word generator, creating a list with only dashes to be
         replaced later with the letters when the player guess it. Keep track of how many chances the
         player still have. Determines if the player win or not.
       """
+      hidden_letters = []
+
       print("\n--------- JUMPER GAME ---------")
-      self.generator.generate_word()
 
       # Creates a list with dashes to be replaced later
-      for i in range(len(self.word_letters)):
-          self.hidden_letters.append('_')
+      for i in range(len(word_letters)):
+          hidden_letters.append('_')
 
       # Checks if the player can play based on the parachute
       # While parachute is not gone the player can play
       while len(self.illustration) > 3:
           print()
-          word = ' '.join(self.hidden_letters)
+          word = ' '.join(hidden_letters)
           print(word)
 
           self.show_illustration()
           print()
 
           # Checks if the player won the game
-          if self.word_letters == self.hidden_letters:
+          if word_letters == hidden_letters:
               print("\n------ YOU WON THE GAME -------")
               print("---------- GOOD JOB -----------")
               quit()
@@ -85,10 +83,10 @@ class Console:
               self.ask()
 
           # Checks if the player guessed the letter
-          if self.user_input in self.word_letters:
-              for i in range(len(self.word_letters)):
-                  if self.user_input == self.word_letters[i]:
-                      self.hidden_letters[i] = self.user_input
+          if self.user_input in word_letters:
+              for i in range(len(word_letters)):
+                  if self.user_input == word_letters[i]:
+                      hidden_letters[i] = self.user_input
           else:
               self.illustration.pop(0)
 
