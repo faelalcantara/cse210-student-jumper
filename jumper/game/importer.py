@@ -19,7 +19,7 @@ class Importer:
             impoted_words = self.read_external_file("jumper/game/wordlist10000.txt")
             # Only allows words with 4 or more characters into the game
             words_filtered_by_length = [word for word in impoted_words if len(word) >= 4]
-            self.words = words_filtered_by_length
+            return words_filtered_by_length
         # If this fails, the game will continue with the basic `self.words` list
         except (FileNotFoundError, PermissionError) as error:
             print(type(error).__name__, error, sep=": ")
