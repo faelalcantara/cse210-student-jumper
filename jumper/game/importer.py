@@ -1,5 +1,7 @@
 
 class Importer:
+    """A class in charge of handing the external file. In case it fails, 
+    the rest of the game shouyld not be affected."""
 
     def read_external_file(self, filename):
         # Reads an external file and imports it as a list of words. This is very standard python code from CSE 111
